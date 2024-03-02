@@ -18,12 +18,6 @@ class GenreSchema(OrmSchema):
     description: str | None = None
 
 
-class BookAuthorSchema(OrmSchema):
-    role: str
-    # person: PersonSchema
-    is_main: bool = False
-
-
 class AuthorSchema(OrmSchema):
     fullname: str
 
