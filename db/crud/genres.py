@@ -18,7 +18,7 @@ async def get_base_genres_list(async_db: AsyncSession, limit: int, skip: int = 0
     return get_objects_from_rows(await async_db.execute(query))
 
 
-async def get_genre_children(async_db: AsyncSession, genre_id: UUID, limit: int, skip: int = 0):
+async def get_genre_children(async_db: AsyncSession, genre_id: UUID | str, limit: int, skip: int = 0):
     query = (
         select(Genre)
         .where(Genre.parent_id == genre_id)
@@ -28,7 +28,7 @@ async def get_genre_children(async_db: AsyncSession, genre_id: UUID, limit: int,
     return get_objects_from_rows(await async_db.execute(query))
 
 
-async def get_genre_parents(async_db: AsyncSession, genre_id: UUID):
+async def get_genre_parents(async_db: AsyncSession, genre_id: UUID | str):
     async with async_db.begin():
         parent_alias = aliased(Genre)
 

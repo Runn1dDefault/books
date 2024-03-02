@@ -1,8 +1,7 @@
 from typing import Any
 from uuid import UUID
-from pprint import pprint
 
-from sqlalchemy import select, literal, func
+from sqlalchemy import select, func
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import aliased
 from sqlalchemy.orm.util import AliasedClass
@@ -97,7 +96,7 @@ async def get_book_list(
     async_db: AsyncSession,
     limit: int,
     skip: int = 0,
-    genre_id: UUID = None,
+    genre_id: UUID | str = None,
     search_term: str = None
 ):
     book_alias, stmt = get_books_list_stmt()
