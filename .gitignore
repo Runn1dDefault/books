@@ -1,0 +1,11 @@
+media/
+.env
+
+*.py[cod]
+*$py.class
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+alembic/
+alembic.ini
